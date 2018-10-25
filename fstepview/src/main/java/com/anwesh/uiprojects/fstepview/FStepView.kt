@@ -4,6 +4,7 @@ package com.anwesh.uiprojects.fstepview
  * Created by anweshmishra on 25/10/18.
  */
 
+import android.app.Activity
 import android.view.View
 import android.view.MotionEvent
 import android.graphics.Canvas
@@ -187,4 +188,12 @@ class FStepView(ctx : Context) : View(ctx) {
         }
     }
 
+    companion object {
+
+        fun create(activity : Activity) : FStepView {
+            val view : FStepView = FStepView(activity)
+            activity.setContentView(view)
+            return view 
+        }
+    }
 }
