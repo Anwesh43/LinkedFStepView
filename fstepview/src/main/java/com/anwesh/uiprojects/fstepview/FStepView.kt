@@ -193,7 +193,7 @@ class FStepView(ctx : Context) : View(ctx) {
         fun create(activity : Activity) : FStepView {
             val view : FStepView = FStepView(activity)
             activity.setContentView(view)
-            return view 
+            return view
         }
     }
 }
