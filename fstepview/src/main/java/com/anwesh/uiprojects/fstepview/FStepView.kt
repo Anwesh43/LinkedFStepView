@@ -162,4 +162,27 @@ class FStepView(ctx : Context) : View(ctx) {
         }
     }
 
+    data class Renderer(var view : FStepView) {
+
+        private val fstep : FStep = FStep(0)
+
+        private val animator : Animator = Animator(view)
+
+        fun render(canvas : Canvas, paint : Paint) {
+            canvas.drawColor(Color.parseColor("#BDBDBD"))
+            fstep.draw(canvas, paint)
+            animator.animate {
+                fstep.update {i, scl ->
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            fstep.startUpdating {
+                animator.start()
+            }
+        }
+    }
+
 }
